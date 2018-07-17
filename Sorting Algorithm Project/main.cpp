@@ -32,6 +32,9 @@ int main(){
 	
 	//Calculate Time
 	//Sort 1000 Times
+	
+	auto time = chrono::high_resolution_clock::now();
+	cout<<chrono::(nanoseconds)time;
 
 	return 0;
 }
