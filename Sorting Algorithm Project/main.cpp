@@ -1,13 +1,12 @@
 #include <iostream>
 #include <fstream>
-#include <time.h>
 #include <chrono>
-#include <ctime>
-#include <ratio>
 #include "mergeSort.cpp"
 #include "selectionSort.cpp"
+#include "quickSort.cpp"
 using namespace std;
 int main(){
+	auto totalTime = 0;
 	int size;
 	string fileName;
 	
@@ -18,6 +17,7 @@ int main(){
 	cin>>size;
 	
 	int unsorted[size];
+	int temp[size];
 	
 	ifstream inFile;
 	inFile.open(fileName);
@@ -28,10 +28,21 @@ int main(){
 		while(inFile>>unsorted[i]){
 			i++;
 		}
+		inFile.close();
 	}
-	
+
 	//Calculate Time
 	//Sort 1000 Times
 
+	quickSort(unsorted,0,size-1);
+	ofstream myfile ("output.txt");
+	if (myfile.is_open())
+	{
+		for(int i = 0; i < size; i++){
+			myfile<<unsorted[i]<<"\n";
+		}
+		myfile.close();
+	}
+	else cout << "Unable to open file";
 	return 0;
 }
