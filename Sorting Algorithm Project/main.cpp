@@ -4,6 +4,7 @@
 #include "mergeSort.cpp"
 #include "selectionSort.cpp"
 #include "quickSort.cpp"
+#include <string.h>
 using namespace std;
 int main(){
 	auto totalTime = 0;
@@ -33,13 +34,20 @@ int main(){
 
 	//Calculate Time
 	//Sort 1000 Times
-
-	quickSort(unsorted,0,size-1);
+	
+	/*for(int i = 0; i < 10; i++){
+		memmove(temp,unsorted,size);
+		quickSort(temp,0,size-1);
+	}*/
+	
+	
+	
+	memmove(temp,unsorted,size);
 	ofstream myfile ("output.txt");
 	if (myfile.is_open())
 	{
 		for(int i = 0; i < size; i++){
-			myfile<<unsorted[i]<<"\n";
+			myfile<<temp[i]<<"\n";
 		}
 		myfile.close();
 	}
