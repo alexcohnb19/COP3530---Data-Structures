@@ -41,7 +41,7 @@ int main(){
 	
 	//Start Sorting
 	auto start = std::chrono::high_resolution_clock::now();
-	for(int i = 0; i < 1; i++){
+	for(int i = 0; i < 100; i++){
 		for(int j = 0; j < size; j++){
 			temp[j] = unsorted[j];
 		}
@@ -49,11 +49,13 @@ int main(){
 			mergeSort(temp, 0 , size-1);
 		}else if(sort == 'q'){
 			quickSort(temp, 0 , size-1);
+		}else if(sort == 's'){
+			selection_sort_array(temp, size);
 		}else{
-			selection_sort_array(unsorted, size);
+			cout<<"Not a method";
+			break;
 		}
 	}	
-	
 	auto finish = std::chrono::high_resolution_clock::now();
     std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(finish-start).count() << "ns\n";
 	
