@@ -41,7 +41,7 @@ int main(){
 	
 	//Start Sorting
 	auto start = std::chrono::high_resolution_clock::now();
-	for(int i = 0; i < 100; i++){
+	for(int i = 0; i < 1; i++){
 		for(int j = 0; j < size; j++){
 			temp[j] = unsorted[j];
 		}
@@ -50,7 +50,7 @@ int main(){
 		}else if(sort == 'q'){
 			quickSort(temp, 0 , size-1);
 		}else{
-			selection_sort_array(temp, size);
+			selection_sort_array(unsorted, size);
 		}
 	}	
 	
