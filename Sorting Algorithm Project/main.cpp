@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <ctime>
+#include <ratio>
 #include <chrono>
 #include <string.h>
 #include "mergeSort.cpp"
@@ -43,11 +45,10 @@ int main(){
 		memmove(temp,unsorted,size);
 		quickSort(temp,0,size-1);
 	}*/
-	typedef std::chrono::high_resolution_clock Time;
 	
-	auto t0 = Time::now();
-	for(int i = 0; i < 10; i++){
-		int temp[size];
+	
+	auto start = std::chrono::high_resolution_clock::now();
+	for(int i = 0; i < 100; i++){
 		for(int j = 0; j < size; j++){
 			temp[j] = unsorted[j];
 		}
@@ -58,11 +59,10 @@ int main(){
 		}else{
 			selection_sort_array(temp, size);
 		}
-		
-	}
-	auto t1 = Time::now();
+	}	
 	
-	cout << chrono::duration_cast<nanosecond>((t0 - t1));
+	auto finish = std::chrono::high_resolution_clock::now();
+    std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(finish-start).count() << "ns\n";
 	
 	ofstream myfile ("output.txt");
 	if (myfile.is_open())
