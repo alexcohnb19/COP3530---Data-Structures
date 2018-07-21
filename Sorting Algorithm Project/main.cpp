@@ -26,6 +26,7 @@ int main(){
 	int unsorted[size];
 	int temp[size];
 	
+	//Reads file into an array
 	ifstream inFile;
 	inFile.open(fileName);
 	int i = 0;
@@ -37,16 +38,8 @@ int main(){
 		}
 		inFile.close();
 	}
-
-	//Calculate Time
-	//Sort 1000 Times
 	
-	/*for(int i = 0; i < 10; i++){
-		memmove(temp,unsorted,size);
-		quickSort(temp,0,size-1);
-	}*/
-	
-	
+	//Start Sorting
 	auto start = std::chrono::high_resolution_clock::now();
 	for(int i = 0; i < 100; i++){
 		for(int j = 0; j < size; j++){
@@ -64,6 +57,7 @@ int main(){
 	auto finish = std::chrono::high_resolution_clock::now();
     std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(finish-start).count() << "ns\n";
 	
+	//Used for test purposes. Output the sorts.
 	ofstream myfile ("output.txt");
 	if (myfile.is_open())
 	{
