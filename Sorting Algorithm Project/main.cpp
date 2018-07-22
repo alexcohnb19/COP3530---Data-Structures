@@ -7,6 +7,7 @@
 #include "mergeSort.cpp"
 #include "selectionSort.cpp"
 #include "quickSort.cpp"
+#include "bubbleSort.cpp"
 using namespace std;
 
 int main(){
@@ -51,6 +52,8 @@ int main(){
 			quickSort(temp, 0 , size-1);
 		}else if(sort == 's'){
 			selection_sort_array(temp, size);
+		}else if(sort == 'b'){
+			bubbleSort(temp,size);
 		}else{
 			cout<<"Not a method";
 			break;
