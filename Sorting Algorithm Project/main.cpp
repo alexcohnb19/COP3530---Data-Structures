@@ -42,10 +42,11 @@ int main(){
 	
 	//Start Sorting
 	auto start = std::chrono::high_resolution_clock::now();
-	for(int i = 0; i < 100; i++){
-		for(int j = 0; j < size; j++){
+	for(int i = 0; i < 100; i++){//Loop to sort through the list multiple times
+		for(int j = 0; j < size; j++){//Resets the list to be sorted
 			temp[j] = unsorted[j];
 		}
+		/*Selects the proper sort*/
 		if(sort == 'm'){
 			mergeSort(temp, 0 , size-1);
 		}else if(sort == 'q'){
@@ -60,7 +61,7 @@ int main(){
 		}
 	}	
 	auto finish = std::chrono::high_resolution_clock::now();
-    std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(finish-start).count() << "ns\n";
+    std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(finish-start).count() << "ns\n";//Prints sort for 100 cases
 	
 	//Used for test purposes. Output the sorts.
 	ofstream myfile ("output.txt");
